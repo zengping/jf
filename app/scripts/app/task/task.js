@@ -1,4 +1,4 @@
-define(["./tmpl", '../tmplEngine'], function(tmpl, tempEngine) {
+define(["./tmpl", '../tmplEngine', '../viewEngine'], function(tmpl, tempEngine, vE) {
     function _init() {
         loadTmpl();
         loadTable();
@@ -9,13 +9,18 @@ define(["./tmpl", '../tmplEngine'], function(tmpl, tempEngine) {
         appView.html(tmpl.page);
     }
 
+    function bindData(data) {
+        vE(data.content);
+    }
+
     function loadTable() {
         var table = tempEngine(tmpl.table);
-        console.log(table);
 
         var ad = appData;
 
         ad.selectList("T_CONTROL_LIST", {}, function(data) {
+
+            bindData(data);
 
             $("#ControlTableBody").empty().html(table(data.content));
         });

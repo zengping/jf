@@ -10,7 +10,7 @@ define(function() {
             'arr.push("' +
             str.replace(/[\r\t\n]/g, ' ')
             .replace(/"/g, '\\"')
-            .replace(/{{=\s(.*?)\s?}}/g, '");arr.push($1);arr.push("')
+            .replace(/{{=\s?(.*?)\s?}}/g, '");arr.push($1);arr.push("')
             .replace(/{{each\((\w)+\,\s?(.*?)\)\s(.*?)\s?}}/g, '");for(var $1 in $3){var $2=$3[$1];arr.push("')
             .replace(/{{\/each}}/g, '");}arr.push("')
             .replace(/{{if\s(.*?)\s?}}/g, '");if ($1) {arr.push("')
