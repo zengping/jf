@@ -1,5 +1,6 @@
 define(function() {
-    function _init() {
+
+    return function() {
         var url = sessionStorage.page;
         if (!url) {
             url = "index/index";
@@ -7,11 +8,5 @@ define(function() {
         require(["./scripts/app/" + url], function(event) {
             event();
         });
-    }
-
-    return {
-        "init": function() {
-            return _init();
-        }
     };
 });

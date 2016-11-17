@@ -21,7 +21,7 @@
         win.$ = $;
         win.appData = appData;
         win.rootScope = {};
-        rootScope.viewsChange = router.init; //监控views变化
+        rootScope.viewsChange = router; //监控views变化
         rootScope.viewsChange();
     });
 
