@@ -1,4 +1,5 @@
 define(['./tmplEngine'], function(tE) {
+
     return function(obj) {
         createHtml();
         getObjName(obj);

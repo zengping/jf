@@ -1,9 +1,4 @@
 define(["./tmpl", '../tmplEngine', '../viewEngine'], function(tmpl, tempEngine, vE) {
-    function _init() {
-        loadTmpl();
-        loadTable();
-        loadEvent();
-    }
 
     function loadTmpl() {
         appView.html(tmpl.page);
