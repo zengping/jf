@@ -47,6 +47,16 @@
         pubsub.publish('change', 'hello world');
         //发布无人监听的消息'msgName1'
         pubsub.publish('anotherMsgName', 'me too!');
+
+        var data = {
+            content: [1, 2, 3]
+        };
+        var x = [];
+        x.push(data);
+        for (var i in x) {
+            console.log(i);
+        }
+        console.log(x);
     </script>
 </head>
 

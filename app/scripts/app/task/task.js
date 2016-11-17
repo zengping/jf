@@ -1,11 +1,21 @@
-define(["./tmpl", '../tmplEngine', '../viewEngine'], function(tmpl, tempEngine, vE) {
+define(["./tmpl", '../tmplEngine', '../viewEngine', '../jLibs'], function(tmpl, tempEngine, vE, jLibs) {
 
     function loadTmpl() {
         appView.html(tmpl.page);
     }
 
     function bindData(data) {
-        vE(data.content);
+        jLibs.pubsub.subscribe("bindData", function(topic, data) {
+            vE(data);
+        });
+        jLibs.pubsub.publish("bindData", {
+            name: "data",
+            data: data.content
+        });
+        jLibs.pubsub.publish("bindData", {
+            name: "list",
+            data: data.content
+        });
     }
 
     function loadTable() {
