@@ -5,7 +5,7 @@ define(function() {
             url = "index/index";
         }
         require(["./scripts/app/" + url], function(event) {
-            event.init();
+            event();
         });
     }
 

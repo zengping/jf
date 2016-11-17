@@ -1,9 +1,4 @@
 define(["./tmpl", '../tmplEngine'], function(tmpl, tempEngine) {
-    function _init() {
-        loadTmpl();
-        loadMenu();
-        loadEvent();
-    }
 
     function loadTmpl() {
         appView.html(tmpl.page);
@@ -35,9 +30,9 @@ define(["./tmpl", '../tmplEngine'], function(tmpl, tempEngine) {
         });
     }
 
-    return {
-        "init": function() {
-            return _init();
-        }
+    return function() {
+        loadTmpl();
+        loadMenu();
+        loadEvent();
     }
 });

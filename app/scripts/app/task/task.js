@@ -33,9 +33,9 @@ define(["./tmpl", '../tmplEngine', '../viewEngine'], function(tmpl, tempEngine, 
         });
     }
 
-    return {
-        "init": function() {
-            return _init();
-        }
+    return function() {
+        loadTmpl();
+        loadTable();
+        loadEvent();
     }
 });
