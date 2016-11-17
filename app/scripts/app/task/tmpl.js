@@ -19,8 +19,12 @@ define(function() {
                         <td><input type="checkbox" data-id="{{v.id}}"></td>
                         <td><a href="javascript:void(0)"><span class="maxL" data-toggle="tooltip" data-placement="bottom" title="{{v.taskName}}">{{v.taskName}}</span></a></td>
                         <td>
-                        <i class="icon-db" j-if="v.taskCategory == 1"></i>\u6570\u636E\u5E93
-                        <i class="icon-bd-o" j-if="v.taskCategory == 2"></i>\u6587\u4EF6
+                        <span j-if="v.taskCategory == 1">
+                        <i class="icon-db"></i>\u6570\u636E\u5E93
+                        </span>
+                        <span j-if="v.taskCategory == 2">
+                        <i class="icon-bd-o""></i>\u6587\u4EF6
+                        </span>
                         </td>
                         <td>{{v.taskType}}</td>
                         <td>{{v.submitUser}}</td>
@@ -60,8 +64,12 @@ define(function() {
                         <td><input type="checkbox" data-id="{{v.id}}"></td>
                         <td><a href="javascript:void(0)"><span class="maxL" data-toggle="tooltip" data-placement="bottom" title="{{v.taskName}}">{{v.taskName}}</span></a></td>
                         <td>
-                        <i class="icon-db" j-if="v.taskCategory == 1"></i>\u6570\u636E\u5E93
-                        <i class="icon-bd-o" j-if="v.taskCategory == 2"></i>\u6587\u4EF6
+                        <span j-if="v.taskCategory == 1">
+                        <i class="icon-db"></i>\u6570\u636E\u5E93
+                        </span>
+                        <span j-if="v.taskCategory == 2">
+                        <i class="icon-bd-o"></i>\u6587\u4EF6
+                        </span>
                         </td>
                         <td>{{v.taskType}}</td>
                         <td>{{v.submitUser}}</td>

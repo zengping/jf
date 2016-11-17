@@ -16,6 +16,7 @@ define(['./tmplEngine'], function(tE) {
                     if (reg.test(fc)) {
                         var ic = cIf(f[i]);
                         var tE = jFor(ic);
+                        console.log(tE);
                         f[i].parentNode.innerHTML = tE(obj.data);
                     }
                 }
@@ -24,22 +25,22 @@ define(['./tmplEngine'], function(tE) {
 
         function cIf(str) {
             var f = str.querySelectorAll("[j-if]");
+            var hstr = str.outerHTML;
             if (f.length > 0) {
                 for (var i = 0; i < f.length; i++) {
                     var ic = f[i].getAttribute("j-if");
                     var h = "";
                     h += "{{if " + ic + "}}";
-                    h += f[i].outerHTML;
+                    if ((new RegExp(/\<span j\-if\=\"(.*?)\">/, 'g')).test(f[i].outerHTML)) {
+                        h += f[i].innerHTML;
+                    } else {
+                        h += f[i].outerHTML;
+                    }
                     h += "{{/if}}";
-                    console.log(f[i]);
-                    var p = f[i].parentNode;
-                    console.log(p);
-                    var n = p.outerHTML.replace(new RegExp(f[i].outerHTML, 'g'), h);
-                    p.innerHTML = n;
-                    console.log(p);
+                    var hstr = hstr.replace(new RegExp(f[i].outerHTML, 'g'), h);
                 }
             }
-            console.log(str);
+            str.innerHTML = hstr;
             return str;
         }
 
@@ -64,6 +65,9 @@ define(['./tmplEngine'], function(tE) {
                 'arr.push("' +
                 str.replace(/[\r\t\n]/g, ' ')
                 .replace(/"/g, '\\"')
+                .replace(/{{if\s(.*?)\s?}}/g, '");if ($1) {arr.push("')
+                .replace(/{{else}}/g, '");}else{arr.push("')
+                .replace(/{{\/if}}/g, '");}arr.push("')
                 .replace(/{{\s?(.*?)\s?}}/g, '");arr.push($1);arr.push("') +
                 '")}return arr.join("");');
         }
