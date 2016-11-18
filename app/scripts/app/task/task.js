@@ -5,14 +5,14 @@ define(["./tmpl", '../tmplEngine', '../viewEngine', '../jLibs'], function(tmpl, 
     }
 
     function bindData(data) {
-        jLibs.pubsub.subscribe("bindData", function(topic, data) {
+        jLibs.pubsub.subscribe("bindData", "taskData", function(topic, data) {
             vE(data);
         });
-        jLibs.pubsub.publish("bindData", {
+        jLibs.pubsub.publish("bindData", "taskData", {
             name: "data",
             data: data.content
         });
-        jLibs.pubsub.publish("bindData", {
+        jLibs.pubsub.publish("bindData", "taskData", {
             name: "list",
             data: data.content
         });

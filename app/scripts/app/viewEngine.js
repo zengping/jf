@@ -16,7 +16,6 @@ define(['./tmplEngine'], function(tE) {
                     if (reg.test(fc)) {
                         var ic = cIf(f[i]);
                         var tE = jFor(ic);
-                        console.log(tE);
                         f[i].parentNode.innerHTML = tE(obj.data);
                     }
                 }
@@ -46,20 +45,23 @@ define(['./tmplEngine'], function(tE) {
 
         function jFor(str) {
             var fc = str.getAttribute("j-for");
-            var v, K;
+            var v, K, list;
             if ((new RegExp(/\(/, 'g')).test(fc)) {
                 v = fc.replace(/\(([a-z]{1,10})\,\s?([a-z]{1,10})(\)\sin\s[a-zA-Z0-9]{1,10})/g, '$2');
                 k = fc.replace(/\(([a-z]{1,10})(\,\s?[a-zA-Z0-9]{1,10}\)\sin\s[a-zA-Z0-9]{1,10})/g, '$1');
+                list = fc.replace(/\(([a-z]{1,10})(\,\s?[a-zA-Z0-9]{1,10}\)\sin\s)([a-zA-Z0-9]{1,10})/g, '$3');
             } else {
                 v = fc.replace(/([a-z]{1,10})\s(in\s[a-zA-Z0-9]{1,10})/g, '$1');
                 k = "x";
+                list = fc.replace(/([a-z]{1,10})\s(in\s)([a-zA-Z0-9]{1,10})/g, '$3');
             }
-            return vFor(k, v, str.outerHTML);
+            return vFor(k, v, list, str.outerHTML);
         }
 
-        function vFor(k, v, str) {
-            return new Function('data',
+        function vFor(k, v, list, str) {
+            return new Function(list,
                 'var arr = [];' +
+                'var data = ' + list + ';' +
                 'for(' + k + ' in data) {' +
                 'var ' + v + ' = data[' + k + '];' +
                 'arr.push("' +

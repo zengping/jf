@@ -29,9 +29,9 @@ define(function() {
                 appControllerLoadings -= 1;
                 if (!appControllerLoadings) $("#loading").hide();
                 if (xhr.responseText.indexOf("<!DOCTYPE html>") != -1) {
-                    if (xhr.responseText.indexOf("<title>大数据脱敏系统 v2.0</title>") != -1) {
+                    if (xhr.responseText.indexOf("<title>系统 v2.0</title>") != -1) {
                         _as.jAlert("<p>登录超时，请重新登录！</p>", function() {
-                            window.location.href = appApi("LOGOUT");
+                            window.location.href = "login.html";
                         });
                         return false;
                     }
