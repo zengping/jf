@@ -42,5 +42,5 @@ define(["./tmpl", '../tmplEngine', '../viewEngine', '../jLibs'], function(tmpl, 
         loadTmpl();
         loadTable();
         loadEvent();
-    }
+    };
 });

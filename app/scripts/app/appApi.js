@@ -29,7 +29,7 @@ define(function() {
              */
             // 任务监控
             "T_CONTROL_LIST": APP_DEV_ENV ? "./jsons/task/control/list.json" : "./jsons/task/control/list.json"
-        }
+        };
 
         return appApi[code];
     }

@@ -37,7 +37,7 @@ define(['./tmplEngine'], function(tE) {
                         h += f[i].outerHTML;
                     }
                     h += "{{/if}}";
-                    var hstr = hstr.replace(new RegExp(f[i].outerHTML, 'g'), h);
+                    hstr = hstr.replace(new RegExp(f[i].outerHTML, 'g'), h);
                 }
             }
             str.innerHTML = hstr;

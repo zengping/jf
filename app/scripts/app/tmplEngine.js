@@ -17,5 +17,5 @@ define(function() {
             .replace(/{{else}}/g, '");}else{arr.push("')
             .replace(/{{\/if}}/g, '");}arr.push("') +
             '");}return arr.join("");');
-    }
+    };
 });

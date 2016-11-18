@@ -34,5 +34,5 @@ define(["./tmpl", '../tmplEngine'], function(tmpl, tempEngine) {
         loadTmpl();
         loadMenu();
         loadEvent();
-    }
+    };
 });
