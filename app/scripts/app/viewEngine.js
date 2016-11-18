@@ -30,13 +30,13 @@ define(['./tmplEngine'], function(tE) {
                     var ic = f[i].getAttribute("j-if");
                     var h = "";
                     h += "{{if " + ic + "}}";
-                    if ((new RegExp(/\<span j\-if\=\"(.*?)\">/, 'g')).test(f[i].outerHTML)) {
+                    if ((new RegExp("\<span j\-if\=\"(.*?)\">", 'g')).test(f[i].outerHTML)) {
                         h += f[i].innerHTML;
                     } else {
                         h += f[i].outerHTML;
                     }
                     h += "{{/if}}";
-                    hstr = hstr.replace(new RegExp(f[i].outerHTML, 'g'), h);
+                    hstr = hstr.replace(new RegExp(f[i].outerHTML), h);
                 }
             }
             str.innerHTML = hstr;
