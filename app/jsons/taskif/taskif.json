@@ -1,0 +1,13 @@
+{
+    "status": {
+        "code": 200,
+        "message": "获取数据成功"
+    },
+    "data": {
+        "id": 1,
+        "pId": 0,
+        "name": "首页管理",
+        "icon": "",
+        "url": "index/index"
+    }
+}

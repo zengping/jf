@@ -16,18 +16,19 @@ define(["./tmpl", '../tmplEngine', '../viewEngine', '../jLibs'], function(tmpl, 
             name: "list",
             data: data.content
         });
+        loadEvent();
     }
 
     function loadTable() {
-        var table = tempEngine(tmpl.table);
+        // var table = tempEngine(tmpl.table);
 
         var ad = appData;
 
-        ad.selectList("T_CONTROL_LIST", {}, function(data) {
+        ad.selectList("T_LIST", {}, function(data) {
 
             bindData(data);
 
-            $("#ControlTableBody").empty().html(table(data.content));
+            // $("#ControlTableBody").empty().html(table(data.content));
         });
     }
 
@@ -35,12 +36,12 @@ define(["./tmpl", '../tmplEngine', '../viewEngine', '../jLibs'], function(tmpl, 
         $("button").on("click", function() {
             sessionStorage.page = "";
             rootScope.viewsChange();
+            event.stopPropagation();
         });
     }
 
     return function() {
         loadTmpl();
         loadTable();
-        loadEvent();
     };
 });

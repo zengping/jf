@@ -6,7 +6,7 @@ define(function() {
                     <li class="animated slideInDown" j-for="v in data">
                         <a class="sys-sidebar-item" href="javascript:void(0);">{{v.name}}</a>
                         <ul class="sys-sidebar-child">
-                            <li class="" j-for="val in v.child" data-url="{{val.url}}">
+                            <li class="" j-for="(key,val) in v.child" data-url="{{val.url}}">
                                 <a href="javascript:void(0);">
                                     <i class="{{val.icon}}"></i>
                                     {{val.name}}
@@ -22,7 +22,7 @@ define(function() {
                 </ul>
             </div>
 
-            <button>to task page</button>
+            <button>to menu</button>
         `;
     }
 

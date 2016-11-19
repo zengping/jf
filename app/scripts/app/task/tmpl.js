@@ -23,7 +23,7 @@ define(function() {
                         <i class="icon-db"></i>\u6570\u636E\u5E93
                         </span>
                         <span j-if="v.taskCategory == 2">
-                        <i class="icon-bd-o""></i>\u6587\u4EF6
+                        <i class="icon-bd-o"></i>\u6587\u4EF6
                         </span>
                         </td>
                         <td>{{v.taskType}}</td>
@@ -37,11 +37,11 @@ define(function() {
                         <span class="badge badge-warning" j-if="v.type == 5">\u505C\u6B62</span>
                         </td>
                         <td>
-                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskView"><i class="icon-track-changes" title="查看"></i></a>
-                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskStart" j-if="v.type != 2"><i class="icon-settings-backup-restore" title="重新执行"></i></a>
-                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskStop" j-if="v.type == 2 && v.taskTypeId == 2"><i class="icon-stop" title="停止执行"></i></a>
-                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskEdit" j-if="v.type != 2"><i class="icon-pencil" title="\u7F16\u8F91\"></i></a>
-                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskDel" j-if="v.type != 2"><i class="icon-trashcan" title="\u5220\u9664"></i></a>
+                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskView"><i class="icon-track-changes" title="查看">查看</i></a>
+                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskStart" j-if="v.type != 2"><i class="icon-settings-backup-restore" title="重新执行">重新执行</i></a>
+                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskStop" j-if="v.type == 2 && v.taskTypeId == 2"><i class="icon-stop" title="停止执行">停止执行</i></a>
+                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskEdit" j-if="v.type != 2"><i class="icon-pencil" title="\u7F16\u8F91">编辑</i></a>
+                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskDel" j-if="v.type != 2"><i class="icon-trashcan" title="\u5220\u9664">删除</i></a>
                         </td>
                     </tr>
                 </tbody>
@@ -82,11 +82,11 @@ define(function() {
                         <span class="badge badge-warning" j-if="v.type == 5">\u505C\u6B62</span>
                         </td>
                         <td>
-                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskView"><i class="icon-track-changes" title="查看"></i></a>
-                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskStart" j-if="v.type != 2"><i class="icon-settings-backup-restore" title="重新执行"></i></a>
-                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskStop" j-if="v.type == 2 && v.taskTypeId == 2"><i class="icon-stop" title="停止执行"></i></a>
-                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskEdit" j-if="v.type != 2"><i class="icon-pencil" title="\u7F16\u8F91\"></i></a>
-                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskDel" j-if="v.type != 2"><i class="icon-trashcan" title="\u5220\u9664"></i></a>
+                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskView"><i class="icon-track-changes" title="查看">查看</i></a>
+                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskStart" j-if="v.type != 2"><i class="icon-settings-backup-restore" title="重新执行">重新执行</i></a>
+                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskStop" j-if="v.type == 2 && v.taskTypeId == 2"><i class="icon-stop" title="停止执行">停止执行</i></a>
+                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskEdit" j-if="v.type != 2"><i class="icon-pencil" title="\u7F16\u8F91">编辑</i></a>
+                        <a href="javascript:void(0);" data-id="{{v.id}}" data-type="{{v.taskCategory}}" class="taskDel" j-if="v.type != 2"><i class="icon-trashcan" title="\u5220\u9664">删除</i></a>
                         </td>
                     </tr>
                 </tbody>

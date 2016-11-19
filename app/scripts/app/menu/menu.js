@@ -10,38 +10,37 @@ define(["./tmpl", '../tmplEngine', '../viewEngine', '../jLibs'], function(tmpl, 
             vE(data);
         });
         jLibs.pubsub.publish("bindData", "menuData", {
-            name: "data",
+            name: "menu",
             data: data
         });
         loadEvent();
     }
 
     function loadMenu() {
-        var menuLeft = tempEngine(tmpl.menuLeft);
 
         var ad = appData;
 
         // TODO: 查询菜单
-        ad.selectMenu("INDEX_MENU", {}, function(data) {
+        ad.selectMenu("ALL_MENU", {}, function(data) {
 
-            var menuLeftData = [];
+            bindData(data);
 
-            for (var i in data) {
-                if (data[i].moduleType != 1) menuLeftData.push(data[i]);
-            }
-
-            bindData(menuLeftData);
-
-            $("#menuLeft").html(menuLeft(menuLeftData));
         });
     }
 
     function loadEvent() {
-        $("button").on("click", function() {
-            sessionStorage.page = "menu/menu";
-            rootScope.viewsChange();
-            event.stopPropagation();
-        });
+        var li = document.querySelectorAll("li");
+        for (var i = 0; i < li.length; i++) {
+            li[i].addEventListener("click", function(event) {
+                page = this.getAttribute("data-url");
+                if (page == undefined) {
+                    return;
+                }
+                sessionStorage.page = page;
+                rootScope.viewsChange();
+                event.stopPropagation();
+            });
+        }
     }
 
     return function() {
