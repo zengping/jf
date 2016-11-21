@@ -6,10 +6,10 @@ define(["./tmpl", '../tmplEngine', '../viewEngine', '../jLibs'], function(tmpl, 
     }
 
     function bindData(data) {
-        jLibs.pubsub.subscribe("bindData", "menuData", function(topic, data) {
+        jLibs.pubsub.subscribe("menuDataBind", function(topic, data) {
             vE(data);
         });
-        jLibs.pubsub.publish("bindData", "menuData", {
+        jLibs.pubsub.publish("menuDataBind", {
             name: "menu",
             data: data
         });
@@ -31,7 +31,7 @@ define(["./tmpl", '../tmplEngine', '../viewEngine', '../jLibs'], function(tmpl, 
     function loadEvent() {
         var li = document.querySelectorAll("li");
         for (var i = 0; i < li.length; i++) {
-            li[i].addEventListener("click", function(event) {
+            li[i].onclick = function(event) {
                 page = this.getAttribute("data-url");
                 if (page == undefined) {
                     return;
@@ -39,7 +39,7 @@ define(["./tmpl", '../tmplEngine', '../viewEngine', '../jLibs'], function(tmpl, 
                 sessionStorage.page = page;
                 rootScope.viewsChange();
                 event.stopPropagation();
-            });
+            };
         }
     }
 

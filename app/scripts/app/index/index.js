@@ -6,10 +6,10 @@ define(["./tmpl", '../tmplEngine', '../viewEngine', '../jLibs'], function(tmpl, 
     }
 
     function bindData(data) {
-        jLibs.pubsub.subscribe("bindData", "menuData", function(topic, data) {
+        jLibs.pubsub.subscribe("menuDataBind", function(topic, data) {
             vE(data);
         });
-        jLibs.pubsub.publish("bindData", "menuData", {
+        jLibs.pubsub.publish("menuDataBind", {
             name: "data",
             data: data
         });
@@ -37,11 +37,12 @@ define(["./tmpl", '../tmplEngine', '../viewEngine', '../jLibs'], function(tmpl, 
     }
 
     function loadEvent() {
-        $("button").on("click", function() {
+        var button = document.querySelector("button");
+        button.onclick = function(event) {
             sessionStorage.page = "menu/menu";
             rootScope.viewsChange();
             event.stopPropagation();
-        });
+        };
     }
 
     return function() {
