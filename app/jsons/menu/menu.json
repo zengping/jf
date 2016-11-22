@@ -25,6 +25,13 @@
             "name": "for管理",
             "icon": "",
             "url": "task/task"
+        },
+        {
+            "id": 5,
+            "pId": 0,
+            "name": "demo",
+            "icon": "",
+            "url": "demo/demo"
         }
     ]
 }
