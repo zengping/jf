@@ -1,10 +1,10 @@
 var jLoad = {
     load: function(url) {
         var self = this;
-        jLib.xhr('GET', url, function(data) {
+        jLoad.xhr('GET', url, function(data) {
             self.innerHTML = data;
 
-            jLib.createJS(data);
+            jLoad.createJS(data);
         });
     },
     xhr: function(method, url, callback) {
@@ -27,12 +27,13 @@ var jLoad = {
             if (jstr.length > 0) {
                 for (var i = 0; i < jstr.length; i++) {
                     var js = jstr[i].replace(/<script>(.*?)<\/script>/g, '$1');
-                    new Function("'" + js + "'");
+                    var jF = new Function(js);
+                    jF();
                 }
             }
         }
 
-        jLib.loadJS(str);
+        jLoad.loadJS(str);
 
     },
     loadJS: function(str) {
